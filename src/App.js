@@ -41,20 +41,8 @@ class App extends Component {
    // return React.createElement('div', {className: 'App'},
       //  React.createElement('h1', null, 'This is working'));
 
-     const style = {
-       backgroundColor: 'green',
-       color: 'white',
-       font: 'inherit',
-       border: '1px solid blue',
-       padding: '8px',
-       cursor: 'pointer',
-         ':hover': {
-           backgroundColor: 'lightgreen',
-             color: 'black',
-         }
-     };
-
      let persons = null;
+     let btnClass = '';
      if(this.state.showPersons){
        persons = (
            <div>
@@ -67,12 +55,8 @@ class App extends Component {
                />
              })}
            </div>
-       )
-         style.backgroundColor = 'red';
-         style[':hover'] = {
-             backgroundColor: 'salmon',
-             color: 'black'
-         }
+        );
+        btnClass = styles.Red;
      }
 
      let classes = [];
@@ -86,10 +70,10 @@ class App extends Component {
 
 
     return (
-            <div className="App">
+            <div className={styles.App}>
                 <h1 className={classes.join(' ')}>Hi, I am Nwanya Justin Tochukwu</h1>
                 <p className={styles.colorRed}> Toggle to see all persons </p>
-                <button style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
+                <button className={btnClass} onClick={this.togglePersonHandler}>Toggle Persons</button>
                 {persons}
             </div>
     );
